@@ -9,14 +9,15 @@ export default function Form() {
 const router = useRouter();
 
   async function clientAction(formData: FormData) {
-
     const result = await createPost(formData)
     if (result?.error){
       alert(result.error)
       toast.error(result.error)
+    } else {
+      toast.success('Your post has been succesfully created.')
+
+      router.push('/posts');
     }
-    toast.success('Your post has been succesfully created.')
-    router.push('/posts');
   }
 
   return (
