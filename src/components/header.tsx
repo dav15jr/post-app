@@ -26,11 +26,11 @@ const pathname = usePathname();
     <header className='flex justify-between items-center py-4 px-7 border-b' >
       <Link href='/'>
         <Image 
-        src="/222-no-bg.png" 
-        width="35" 
-        height="35" 
+        src="/blog-logo.png" 
+        width="30" 
+        height="30" 
         alt="Logo"
-        className='w-[35px] h-[35px] '
+        className='w-[30px] h-[30px] '
         />
       </Link>
 
@@ -39,7 +39,7 @@ const pathname = usePathname();
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link className={`${
-                pathname === link.href ? "text-zinc-900" : "text-zinc-400"
+                pathname === link.href ? "text-orange-500 font-semibold" : "text-zinc-400"
                 }`} href={link.href}>{link.label}</Link>
             </li> 
           ))}

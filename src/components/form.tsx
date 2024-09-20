@@ -1,9 +1,26 @@
-import { createPost } from '@/actions/actions'
+'use client'
 
+import { createPost } from '@/actions/actions'
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 export default function Form() {
+
+const router = useRouter();
+
+  async function clientAction(formData: FormData) {
+
+    const result = await createPost(formData)
+    if (result?.error){
+      alert(result.error)
+      toast.error(result.error)
+    }
+    toast.success('Your post has been succesfully created.')
+    router.push('/posts');
+  }
+
   return (
-    <form action={createPost} className="flex flex-col max-w-[400px] mx-auto gap-2 my-10">
+    <form action={clientAction} className="flex flex-col max-w-[400px] mx-auto gap-2 my-10">
     <input 
     type="text" 
     name='title'
@@ -17,8 +34,8 @@ export default function Form() {
     rows={6}
     required
     />
-    <button className="h-10 bg-purple-500 px-5 rounded text-white">
-        Submit
+    <button className="h-10 bg-orange-500 px-5 rounded text-white">
+        Create
     </button>
 </form>
   )

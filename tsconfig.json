@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/components/deleteBTN.tsx"  ],
   "exclude": [
     "node_modules"
   ]

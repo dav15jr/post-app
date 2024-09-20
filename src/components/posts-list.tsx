@@ -1,5 +1,6 @@
 import prisma from "@/lib/db";
 import Link from "next/link";
+import DeleteBTN from "./deleteBTN";
 
 export default async function PostsList() {
 
@@ -7,12 +8,12 @@ export default async function PostsList() {
     const posts = await prisma.post.findMany();
   
 
-
   return (
-    <ul>
+    <ul className="mb-3 w-[200px] mx-auto">
         {posts.map((post) => (
-            <li key={post.id} className="mb-3">
-                <Link href={`/posts/${post.id}`}>{post.title}</Link>
+            <li key={post.id} className="mb-3 flex justify-between">
+                <Link href={`/posts/${post.id}`} className="truncate mr-2">{post.title}</Link>
+                <DeleteBTN id={post.id} />
             </li>
         ))}
     </ul>

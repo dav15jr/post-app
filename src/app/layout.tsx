@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from 'react-hot-toast';
 
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-zinc-900 bg-zinc-100 min-h-screen`}
       >
+        <Toaster/>
         <Container>
           <Header />
             {children}
